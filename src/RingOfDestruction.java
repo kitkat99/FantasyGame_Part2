@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class RingOfDestruction implements  Equippable {
+public class RingOfDestruction implements Equippable {
     @Override
     public SlotType getSlotType() {
         return SlotType.Finger;

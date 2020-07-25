@@ -1,14 +1,17 @@
 public enum EffectType {
-    none,
-    mana_boost,
-    mana_replenish,
-    hp_boost,
-    hp_replenish,
-    damage_boost;
+    none(false),
+    mana_boost(false),
+    mana_replenish(true),
+    hp_boost(false),
+    hp_replenish(true),
+    damage_boost(false);
     private boolean useEffect;
 
-    public boolean getUseEffect() {
+    EffectType(final boolean useEffect) {
+        this.useEffect = useEffect;
+    }
 
+    public boolean getUseEffect() {
         return useEffect;
     }
 

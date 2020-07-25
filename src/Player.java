@@ -5,6 +5,12 @@ public class Player extends AbstractPlayer {
     }
 
     @Override
+    public int getMaxHP() {
+        return getBaseHP() + LevelMapping.getBonusFromLevel(getLevel(), FantasyGameConstants.playerLevelToBonusMap).getHPBonus();
+
+    }
+
+    @Override
     public void setBaseIntelligence(int baseIntelligence) {
         super.setBaseIntelligence(10);
     }
