@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class WristbandOfMana implements Item, Equippable {
+public class WristbandOfMana implements Equippable {
     private final String itemName = "WristbandOfMana";
 
     @Override

@@ -32,7 +32,7 @@ public abstract class AbstractPlayer {
     }
 
     public int getMaxHP() {
-        return baseHP + LevelMapping.bonusMapping(getLevel()).getHPBonus();
+        return baseHP + LevelMapping.getBonusFromLevel(getLevel(), FantasyGameConstants.playerLevelToBonusMap).getHPBonus();
     }
 
     public int addXP() {

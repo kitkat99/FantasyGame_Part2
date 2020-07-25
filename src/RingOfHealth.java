@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class RingOfHealth implements Item, Equippable {
+public class RingOfHealth implements Equippable {
     private final String itemName = "RingOfHealth";
 
     @Override

@@ -5,7 +5,7 @@ import java.util.List;
 // neck,
 // bonus_damage = 42,
 // bonus_hp = 80
-public class RelicOfTheAncients implements Item, Equippable {
+public class RelicOfTheAncients implements  Equippable {
     private final String itemName = "RelicOfTheAncients";
 
     @Override

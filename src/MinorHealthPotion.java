@@ -4,7 +4,7 @@ import java.util.List;
 // usable,
 // 10 uses,
 // health replenish = 5
-public class MinorHealthPotion implements Item, Usable {
+public class MinorHealthPotion implements Usable {
     int initialUses = 10;
 
     @Override
