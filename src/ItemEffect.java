@@ -2,6 +2,13 @@ public class ItemEffect {
     private EffectType effectType;
     private int effectAmount;
 
+    public EffectType getEffectType() {
+        return effectType;
+    }
+
+    public int getEffectAmount() {
+        return effectAmount;
+    }
 
     public ItemEffect(EffectType effectType, int effectAmount) {
         this.effectAmount = effectAmount;
