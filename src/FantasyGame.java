@@ -23,9 +23,11 @@ public class FantasyGame {
         var wristband = new WristbandOfMana();
         List<Item> listOfItems = List.of(ring1, armor, relicOfAncients, secondArmor, wristband);
         listOfItems.stream().forEach(e -> player1.pickUp(e));
-        listOfItems
+        player1
+            .getInventory()
             .stream()
-            .forEach((e ->
+            .filter(e -> e instanceof Equippable)
+            .forEach(e ->
             {
                 Slot slot = player1Slots
                     .stream()
@@ -34,10 +36,8 @@ public class FantasyGame {
                     .orElse(null);
                 if (slot != null) {
                     slot.equip(e);
-                    System.out.println(e.getItemName());
-                    System.out.println(e.getItemEffects());
                 }
-            }));
+            });
 //        player1.drop(armor);
 //        player1.drop(secondArmor);
 
