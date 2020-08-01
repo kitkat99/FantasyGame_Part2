@@ -4,7 +4,9 @@ public class Player extends AbstractPlayer {
 
     @Override
     public int getMaxHP() {
-        return getBaseHP() + getLevelHP() + getBoostFromEquippedItems(EffectType.hp_boost);
+        return getBaseHP()
+            + getLevelHP()
+            + getBoostFromEquippedItems(EffectType.hp_boost);
 
     }
 
@@ -30,7 +32,9 @@ public class Player extends AbstractPlayer {
 
     @Override
     public int getIntelligence() {
-        return getBaseIntelligence() + LevelMapping.getBonusFromLevel(getLevel(), FantasyGameConstants.playerLevelToBonusMap).getIntelligenceBonus();
+        return getBaseIntelligence()
+            + getLevelInt();
+
     }
 
     @Override
@@ -41,7 +45,7 @@ public class Player extends AbstractPlayer {
     @Override
     public int getStrength() {
         return getBaseStrength()
-            + LevelMapping.getBonusFromLevel(getLevel(), FantasyGameConstants.playerLevelToBonusMap).getStrengthBonus();
+            + getLevelStr();
     }
 
     private void setPlayerStats() {
@@ -53,7 +57,9 @@ public class Player extends AbstractPlayer {
 
     @Override
     public int getMaxMP() {
-        return getBaseMP() + getBoostFromEquippedItems(EffectType.mana_boost);
+        return getBaseMP()
+            + getLevelMP() +
+            getBoostFromEquippedItems(EffectType.mana_boost);
     }
 
     public Player(List<Slot> slots) {
