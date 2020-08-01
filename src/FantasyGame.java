@@ -26,7 +26,7 @@ public class FantasyGame {
         player1
             .getInventory()
             .stream()
-            .filter(e -> e instanceof Equippable)
+            .filter(elem -> elem instanceof Equippable)
             .forEach(e ->
             {
                 Slot slot = player1Slots
