@@ -1,8 +1,5 @@
 import java.util.Map;
 
-
-
-
 public class LevelMapping {
 
     public static int getLevelFromXP(int XP) {
