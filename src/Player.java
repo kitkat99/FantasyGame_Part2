@@ -3,11 +3,6 @@ import java.util.List;
 public class Player extends AbstractPlayer {
 
     @Override
-    public void setBaseStrength(int baseStrength) {
-        super.setBaseStrength(20);
-    }
-
-    @Override
     public int getMaxHP() {
         return getBaseHP() + getLevelHP() + getBoostFromEquippedItems(EffectType.hp_boost);
 
@@ -46,31 +41,30 @@ public class Player extends AbstractPlayer {
     @Override
     public int getStrength() {
         return getBaseStrength()
-                + LevelMapping.getBonusFromLevel(getLevel(), FantasyGameConstants.playerLevelToBonusMap).getStrengthBonus();
+            + LevelMapping.getBonusFromLevel(getLevel(), FantasyGameConstants.playerLevelToBonusMap).getStrengthBonus();
+    }
+
+    private void setPlayerStats() {
+        setBaseHP(FantasyGameConstants.BASE_HP);
+        setBaseIntelligence(FantasyGameConstants.BASE_INTELLIGENCE);
+        setBaseMP(FantasyGameConstants.BASE_MP);
+        setBaseStrength(FantasyGameConstants.BASE_STRENGTH);
     }
 
     @Override
-    public int getMaxMana() {
+    public int getMaxMP() {
         return getBaseMP() + getBoostFromEquippedItems(EffectType.mana_boost);
-    }
-
-    @Override
-    public void setBaseIntelligence(int baseIntelligence) {
-        super.setBaseIntelligence(10);
-    }
-
-    @Override
-    public void setBaseHP(int baseHP) {
-        super.setBaseHP(20);
-    }
-
-    @Override
-    public void setBaseMP(int baseMP) {
-        super.setBaseMP(10);
     }
 
     public Player(List<Slot> slots) {
         createPlayerSlotList(slots);
+        setPlayerStats();
+
     }
 
+    public Player(List<Slot> slots, String playerName) {
+        createPlayerSlotList(slots);
+        setPlayerStats();
+        setPlayerName(playerName);
+    }
 }
