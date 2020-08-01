@@ -35,5 +35,8 @@ public class FantasyGameConstants {
     public static final int LEVEL_3_MIN_EXP = 900;
     public static final int LEVEL_4_MIN_EXP = 2700;
     public static final int LEVEL_5_MIN_EXP = 6500;
-
+    public static final int BASE_STRENGTH = 20;
+    public static final int BASE_HP = 20;
+    public static final int BASE_MP = 10;
+    public static final int BASE_INTELLIGENCE = 10;
 }
