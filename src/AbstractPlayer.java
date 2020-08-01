@@ -1,7 +1,9 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public abstract class AbstractPlayer {
+    private String playerName = "player";
     private int baseHP;
     private int HP;
     private int MP;
@@ -68,18 +70,18 @@ public abstract class AbstractPlayer {
 
     public abstract int getStrength();
 
-    public abstract int getMaxMana();
+    public abstract int getMaxMP();
 
-    public int addXP() {
-        return 0;
+    public void addXP(int XP) {
+        this.XP += XP;
 
     }
 
-    public int removeXP() {
-        return 0;
+    public void removeXP(int XP) {
+        this.XP -= XP;
     }
 
-    public void pickUp(Item item) {
+    public <T extends Item> void pickUp(T item) {
         Inventory.add(item);
     }
 
@@ -89,7 +91,6 @@ public abstract class AbstractPlayer {
         } else {
             Inventory.remove(item);
         }
-
     }
 
     public void showInventory() {
@@ -121,10 +122,10 @@ public abstract class AbstractPlayer {
 
     public int getBoostFromEquippedItems(EffectType effectType) {
         return getEquippedItemsEffects()
-                .stream()
-                .filter(e -> e.getEffectType() == effectType)
-                .map(e -> e.getEffectAmount())
-                .reduce(0, (element1, element2) -> element1 + element2);
+            .stream()
+            .filter(e -> e.getEffectType() == effectType)
+            .map(e -> e.getEffectAmount())
+            .reduce(0, (element1, element2) -> element1 + element2);
     }
 
     public List<Slot> getSlots() {
@@ -134,4 +135,22 @@ public abstract class AbstractPlayer {
     public void createPlayerSlotList(List<Slot> slots) {
         Slots.addAll((slots));
     }
+
+    public String printPlayerStats() {
+        return getPlayerName()
+            + " hp: " + getMaxHP()
+            + " mp: " + getMaxMP()
+            + " strength: " + getStrength()
+            + " intelligence: " + getIntelligence();
+
+    }
+
+    public void setPlayerName(String playerName) {
+        this.playerName = playerName;
+    }
+
+    public String getPlayerName() {
+        return playerName;
+    }
+
 }
