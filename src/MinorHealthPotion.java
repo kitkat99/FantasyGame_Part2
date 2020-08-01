@@ -1,3 +1,4 @@
+import java.util.Collections;
 import java.util.List;
 
 //MinorHealthPotion:
@@ -5,7 +6,8 @@ import java.util.List;
 // 10 uses,
 // health replenish = 5
 public class MinorHealthPotion implements Usable {
-    int initialUses = 10;
+    private final String itemName = "MinorHealthPotion";
+    int itemUses = 10;
 
     @Override
     public List<ItemEffect> getItemEffects() {
@@ -14,18 +16,23 @@ public class MinorHealthPotion implements Usable {
 
     @Override
     public String getItemName() {
-        return null;
+        return itemName;
     }
 
     @Override
     public int usesLeft() {
-        return 0;
+        return itemUses;
     }
 
     @Override
     public List<ItemEffect> use() {
-        initialUses--;
-        return getItemEffects();
+        if (usesLeft() > 0) {
+            itemUses--;
+            return getItemEffects();
+        } else {
+            System.out.println("no uses left for " + getItemName());
+            return Collections.emptyList();
+        }
     }
 
 }
