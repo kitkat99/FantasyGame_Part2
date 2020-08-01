@@ -46,4 +46,9 @@ public class Slot {
     public Set<Item> getListOfItems() {
         return listOfItems;
     }
+
+    @Override
+    public String toString() {
+        return "SlotType: " + this.slotType + " SlotCapacity: " + this.capacity;
+    }
 }
