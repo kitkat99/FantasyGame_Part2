@@ -1,9 +1,11 @@
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Set;
 
 public class Slot {
     private SlotType slotType;
     private int capacity;
-    private Set<Item> listOfItems;
+    private Set<Item> listOfItems = new HashSet<>();
 
     public boolean equip(Item item) throws IllegalArgumentException {
         try {
@@ -45,6 +47,10 @@ public class Slot {
 
     public Set<Item> getListOfItems() {
         return listOfItems;
+    }
+
+    public SlotType getSlotType() {
+        return slotType;
     }
 
     @Override
