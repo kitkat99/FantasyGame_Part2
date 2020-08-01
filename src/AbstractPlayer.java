@@ -161,4 +161,8 @@ public abstract class AbstractPlayer {
         return playerName;
     }
 
+    public List<Item> getInventory() {
+        return Inventory;
+    }
+
 }
