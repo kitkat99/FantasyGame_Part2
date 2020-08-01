@@ -51,7 +51,7 @@ public abstract class AbstractPlayer {
     }
 
     public int getLevel() {
-        return LevelMapping.getLevelFromXP(XP);
+        return LevelMapping.getLevelFromXP(getXP());
     }
 
     public abstract int getMaxHP();
@@ -78,7 +78,17 @@ public abstract class AbstractPlayer {
     }
 
     public void removeXP(int XP) {
-        this.XP -= XP;
+
+        try {
+            if (this.XP - XP < 0) {
+                throw new IllegalArgumentException("Total Player Experience cannot be negative");
+            } else {
+                this.XP -= XP;
+            }
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public <T extends Item> void pickUp(T item) {
@@ -114,9 +124,7 @@ public abstract class AbstractPlayer {
 
     public List<ItemEffect> getEquippedItemsEffects() {
         List<ItemEffect> equippedItemsEffects = new ArrayList<>();
-        getEquippedItems().forEach(e -> {
-            equippedItemsEffects.addAll(e.getItemEffects());
-        });
+        getEquippedItems().forEach(e -> equippedItemsEffects.addAll(e.getItemEffects()));
         return equippedItemsEffects;
     }
 
