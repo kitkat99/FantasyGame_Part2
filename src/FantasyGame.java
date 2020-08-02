@@ -44,7 +44,8 @@ public class FantasyGame {
                 .filter(elem -> elem instanceof Equippable)
                 .forEach(e ->
                 {
-                    Slot slot = player1Slots
+                    Slot slot = player
+                        .getSlots()
                         .stream()
                         .filter(x -> x.getSlotType() == ((Equippable) e).getSlotType())
                         .findAny()
