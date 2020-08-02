@@ -145,10 +145,10 @@ public abstract class AbstractPlayer {
     }
 
     public String printPlayerStats() {
-        return getPlayerName()
-            + " hp: " + getMaxHP()
+        return " hp: " + getMaxHP()
             + " mp: " + getMaxMP()
             + " strength: " + getStrength()
+            + " damage: " + getAttackDamage()
             + " intelligence: " + getIntelligence();
 
     }
