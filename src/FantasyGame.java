@@ -6,12 +6,14 @@ public class FantasyGame {
 
         List<Slot> player1Slots = List.of(
             new Slot(SlotType.Chest, 1),
+            new Slot(SlotType.Neck, 1),
             new Slot(SlotType.Legs, 2),
             new Slot(SlotType.Hand, 2),
             new Slot(SlotType.Finger, 10));
 
         List<Slot> player2Slots = List.of(
             new Slot(SlotType.Chest, 1),
+            new Slot(SlotType.Neck, 1),
             new Slot(SlotType.Legs, 2),
             new Slot(SlotType.Hand, 2),
             new Slot(SlotType.Finger, 10));
